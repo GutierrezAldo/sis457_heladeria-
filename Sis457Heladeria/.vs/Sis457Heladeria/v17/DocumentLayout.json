@@ -1,12 +1,70 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Nam\\Documents\\Informatica\\Fundamentos de la programacion\\LabElizabeth\\sis457_heladeria-\\Sis457Heladeria\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F6CD3BF5-B68E-45B7-A82A-190D5E2D57AA}|CpHeladeria\\CpHeladeria.csproj|c:\\users\\nam\\documents\\informatica\\fundamentos de la programacion\\labelizabeth\\sis457_heladeria-\\sis457heladeria\\cpheladeria\\frmautenticacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F6CD3BF5-B68E-45B7-A82A-190D5E2D57AA}|CpHeladeria\\CpHeladeria.csproj|solutionrelative:cpheladeria\\frmautenticacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6CD3BF5-B68E-45B7-A82A-190D5E2D57AA}|CpHeladeria\\CpHeladeria.csproj|c:\\users\\nam\\documents\\informatica\\fundamentos de la programacion\\labelizabeth\\sis457_heladeria-\\sis457heladeria\\cpheladeria\\frmautenticacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6CD3BF5-B68E-45B7-A82A-190D5E2D57AA}|CpHeladeria\\CpHeladeria.csproj|solutionrelative:cpheladeria\\frmautenticacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6CD3BF5-B68E-45B7-A82A-190D5E2D57AA}|CpHeladeria\\CpHeladeria.csproj|c:\\users\\nam\\documents\\informatica\\fundamentos de la programacion\\labelizabeth\\sis457_heladeria-\\sis457heladeria\\cpheladeria\\frmautenticacion.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6CD3BF5-B68E-45B7-A82A-190D5E2D57AA}|CpHeladeria\\CpHeladeria.csproj|solutionrelative:cpheladeria\\frmautenticacion.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FrmAutenticacion.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Nam\\Documents\\Informatica\\Fundamentos de la programacion\\LabElizabeth\\sis457_heladeria-\\Sis457Heladeria\\CpHeladeria\\FrmAutenticacion.Designer.cs",
+              "RelativeDocumentMoniker": "CpHeladeria\\FrmAutenticacion.Designer.cs",
+              "ToolTip": "C:\\Users\\Nam\\Documents\\Informatica\\Fundamentos de la programacion\\LabElizabeth\\sis457_heladeria-\\Sis457Heladeria\\CpHeladeria\\FrmAutenticacion.Designer.cs",
+              "RelativeToolTip": "CpHeladeria\\FrmAutenticacion.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T18:32:53.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FrmAutenticacion.cs",
+              "DocumentMoniker": "C:\\Users\\Nam\\Documents\\Informatica\\Fundamentos de la programacion\\LabElizabeth\\sis457_heladeria-\\Sis457Heladeria\\CpHeladeria\\FrmAutenticacion.cs",
+              "RelativeDocumentMoniker": "CpHeladeria\\FrmAutenticacion.cs",
+              "ToolTip": "C:\\Users\\Nam\\Documents\\Informatica\\Fundamentos de la programacion\\LabElizabeth\\sis457_heladeria-\\Sis457Heladeria\\CpHeladeria\\FrmAutenticacion.cs",
+              "RelativeToolTip": "CpHeladeria\\FrmAutenticacion.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAlwBIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T18:29:31.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FrmAutenticacion.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Nam\\Documents\\Informatica\\Fundamentos de la programacion\\LabElizabeth\\sis457_heladeria-\\Sis457Heladeria\\CpHeladeria\\FrmAutenticacion.cs",
+              "RelativeDocumentMoniker": "CpHeladeria\\FrmAutenticacion.cs",
+              "ToolTip": "C:\\Users\\Nam\\Documents\\Informatica\\Fundamentos de la programacion\\LabElizabeth\\sis457_heladeria-\\Sis457Heladeria\\CpHeladeria\\FrmAutenticacion.cs [Dise\u00F1o]",
+              "RelativeToolTip": "CpHeladeria\\FrmAutenticacion.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T18:25:26.582Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -12,6 +12,8 @@ namespace CadHeladeria
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class LabHeladeriaEntities : DbContext
     {
@@ -33,5 +35,14 @@ namespace CadHeladeria
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<Venta> Venta { get; set; }
         public virtual DbSet<VentaDetalle> VentaDetalle { get; set; }
+    
+        public virtual ObjectResult<paProductoListar_Result> paProductoListar(string parametro)
+        {
+            var parametroParameter = parametro != null ?
+                new ObjectParameter("parametro", parametro) :
+                new ObjectParameter("parametro", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paProductoListar_Result>("paProductoListar", parametroParameter);
+        }
     }
 }

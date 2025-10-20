@@ -1,13 +1,13 @@
-﻿CREATE DATABASE Heladeria;
+﻿CREATE DATABASE LabHeladeria;
 GO
 USE [master]
 GO
 CREATE LOGIN [usrheladeria] WITH PASSWORD = N'123456',
-	DEFAULT_DATABASE = [Heladeria],
+	DEFAULT_DATABASE = [LabHeladeria],
 	CHECK_EXPIRATION = OFF,
 	CHECK_POLICY = ON
 GO
-USE [Heladeria]
+USE [LabHeladeria]
 GO
 CREATE USER [usrheladeria] FOR LOGIN [usrheladeria]
 GO
@@ -22,6 +22,9 @@ DROP TABLE Sabor;
 DROP TABLE Usuario;
 DROP TABLE Empleado;
 DROP TABLE Producto;
+
+-- Eliminar el procedimiento almacenado si ya existe
+DROP PROC paProductoListar;
 
 CREATE TABLE Producto (
   id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
@@ -113,6 +116,31 @@ ALTER TABLE Venta ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1:Eliminado, 0: In
 ALTER TABLE VentaDetalle ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
 ALTER TABLE VentaDetalle ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
 ALTER TABLE VentaDetalle ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1:Eliminado, 0: Inactivo, 1: Activo
+
+-- Insertar
+INSERT INTO Producto (nombre, precio) VALUES ('Vaso Pequeño', 1.50),
+										   ('Vaso Mediano', 2.50),
+										   ('Vaso Grande', 3.50);
+
+-- Leer
+SELECT * FROM Producto;
+ 
+-- Procedimiento Almacénado: Listar Productos
+GO
+CREATE PROC paProductoListar @parametro VARCHAR(100)
+AS
+BEGIN
+	SELECT * FROM Producto
+	WHERE estado = 1
+	AND (nombre LIKE '%' + @parametro + '%' OR @parametro = '')
+	ORDER BY nombre ASC
+	END
+GO
+
+-- Ejecutar el Procedimiento Almacenado
+EXEC paProductoListar @parametro = 'Vaso'
+
+
 
 
 
