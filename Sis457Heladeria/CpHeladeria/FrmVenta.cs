@@ -99,6 +99,7 @@ namespace CpHeladeria
             erpProducto.Clear();
             erpCantidad.Clear();
             erpTipoPago.Clear();
+            erpPrecioUnitario.Clear();
 
             if (cbxCliente.SelectedIndex == -1)
             {

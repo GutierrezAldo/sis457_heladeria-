@@ -41,21 +41,21 @@ namespace CpHeladeria
 
         private void FrmProducto_Load(object sender, EventArgs e)
         {
-            Size = new Size(610, 301);
+            Size = new Size(718, 256);
             listar();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             esNuevo = true;
-            Size = new Size(610, 429);
+            Size = new Size(718, 394);
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             esNuevo = false;
             pnlAcciones.Enabled = false;
-            Size = new Size(610, 429);
+            Size = new Size(718, 394);
 
             int id = (int)dgvLista.CurrentRow.Cells["id"].Value;
             var producto = ProductoCln.obtenerUno(id);
@@ -67,6 +67,7 @@ namespace CpHeladeria
 
             txtNombre.Focus();
         }
+
         private void limpiar()
         {
             txtNombre.Clear();
@@ -78,7 +79,7 @@ namespace CpHeladeria
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Size = new Size(610, 301);
+            Size = new Size(718, 256);
             pnlAcciones.Enabled = true;
             limpiar();
         }

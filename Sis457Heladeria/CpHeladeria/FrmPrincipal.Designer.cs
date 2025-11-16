@@ -36,25 +36,27 @@
             this.ribbonQat1 = new C1.Win.C1Ribbon.RibbonQat();
             this.ribbonTab1 = new C1.Win.C1Ribbon.RibbonTab();
             this.ribbonGroup1 = new C1.Win.C1Ribbon.RibbonGroup();
-            this.btnCaProductos = new C1.Win.C1Ribbon.RibbonButton();
             this.btnCaVentas = new C1.Win.C1Ribbon.RibbonButton();
+            this.btnCaProductos = new C1.Win.C1Ribbon.RibbonButton();
+            this.ribbonTab5 = new C1.Win.C1Ribbon.RibbonTab();
+            this.ribbonGroup5 = new C1.Win.C1Ribbon.RibbonGroup();
+            this.btnCaEmpleados = new C1.Win.C1Ribbon.RibbonButton();
             this.ribbonTab3 = new C1.Win.C1Ribbon.RibbonTab();
             this.ribbonGroup3 = new C1.Win.C1Ribbon.RibbonGroup();
-            this.ribbonButton2 = new C1.Win.C1Ribbon.RibbonButton();
+            this.btnCaProducto = new C1.Win.C1Ribbon.RibbonButton();
+            this.ribbonTab6 = new C1.Win.C1Ribbon.RibbonTab();
+            this.ribbonGroup6 = new C1.Win.C1Ribbon.RibbonGroup();
+            this.btnCaClientes = new C1.Win.C1Ribbon.RibbonButton();
             this.ribbonTab4 = new C1.Win.C1Ribbon.RibbonTab();
             this.ribbonGroup4 = new C1.Win.C1Ribbon.RibbonGroup();
             this.ribbonButton1 = new C1.Win.C1Ribbon.RibbonButton();
-            this.ribbonTab5 = new C1.Win.C1Ribbon.RibbonTab();
-            this.ribbonGroup5 = new C1.Win.C1Ribbon.RibbonGroup();
-            this.ribbonButton4 = new C1.Win.C1Ribbon.RibbonButton();
             this.ribbonTab2 = new C1.Win.C1Ribbon.RibbonTab();
             this.ribbonGroup2 = new C1.Win.C1Ribbon.RibbonGroup();
             this.ribbonButton3 = new C1.Win.C1Ribbon.RibbonButton();
             this.ribbonTopToolBar1 = new C1.Win.C1Ribbon.RibbonTopToolBar();
-            this.ribbonTab6 = new C1.Win.C1Ribbon.RibbonTab();
-            this.ribbonGroup6 = new C1.Win.C1Ribbon.RibbonGroup();
-            this.ribbonButton5 = new C1.Win.C1Ribbon.RibbonButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.crbPrincipal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // crbPrincipal
@@ -67,7 +69,7 @@
             this.crbPrincipal.Location = new System.Drawing.Point(0, 0);
             this.crbPrincipal.Name = "crbPrincipal";
             this.crbPrincipal.QatHolder = this.ribbonQat1;
-            this.crbPrincipal.Size = new System.Drawing.Size(708, 154);
+            this.crbPrincipal.Size = new System.Drawing.Size(708, 158);
             this.crbPrincipal.Tabs.Add(this.ribbonTab1);
             this.crbPrincipal.Tabs.Add(this.ribbonTab5);
             this.crbPrincipal.Tabs.Add(this.ribbonTab3);
@@ -91,6 +93,7 @@
             // 
             // ribbonQat1
             // 
+            this.ribbonQat1.BelowRibbon = true;
             this.ribbonQat1.Name = "ribbonQat1";
             // 
             // ribbonTab1
@@ -102,18 +105,10 @@
             // ribbonGroup1
             // 
             this.ribbonGroup1.HasLauncherButton = true;
-            this.ribbonGroup1.Items.Add(this.btnCaProductos);
             this.ribbonGroup1.Items.Add(this.btnCaVentas);
+            this.ribbonGroup1.Items.Add(this.btnCaProductos);
             this.ribbonGroup1.Name = "ribbonGroup1";
             this.ribbonGroup1.Text = "Gestion de Operaciones";
-            // 
-            // btnCaProductos
-            // 
-            this.btnCaProductos.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnCaProductos.LargeImage")));
-            this.btnCaProductos.Name = "btnCaProductos";
-            this.btnCaProductos.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnCaProductos.SmallImage")));
-            this.btnCaProductos.Text = "Productos";
-            this.btnCaProductos.Click += new System.EventHandler(this.btnCaProductos_Click);
             // 
             // btnCaVentas
             // 
@@ -123,6 +118,34 @@
             this.btnCaVentas.Text = "Ventas";
             this.btnCaVentas.Click += new System.EventHandler(this.btnCaVentas_Click);
             // 
+            // btnCaProductos
+            // 
+            this.btnCaProductos.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnCaProductos.LargeImage")));
+            this.btnCaProductos.Name = "btnCaProductos";
+            this.btnCaProductos.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnCaProductos.SmallImage")));
+            this.btnCaProductos.Text = "Productos";
+            this.btnCaProductos.Click += new System.EventHandler(this.btnCaProductos_Click);
+            // 
+            // ribbonTab5
+            // 
+            this.ribbonTab5.Groups.Add(this.ribbonGroup5);
+            this.ribbonTab5.Name = "ribbonTab5";
+            this.ribbonTab5.Text = "Empleados";
+            // 
+            // ribbonGroup5
+            // 
+            this.ribbonGroup5.Items.Add(this.btnCaEmpleados);
+            this.ribbonGroup5.Name = "ribbonGroup5";
+            this.ribbonGroup5.Text = "Gestion de empleados";
+            // 
+            // btnCaEmpleados
+            // 
+            this.btnCaEmpleados.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnCaEmpleados.LargeImage")));
+            this.btnCaEmpleados.Name = "btnCaEmpleados";
+            this.btnCaEmpleados.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnCaEmpleados.SmallImage")));
+            this.btnCaEmpleados.Text = "Empleados";
+            this.btnCaEmpleados.Click += new System.EventHandler(this.ribbonButton4_Click);
+            // 
             // ribbonTab3
             // 
             this.ribbonTab3.Groups.Add(this.ribbonGroup3);
@@ -131,16 +154,37 @@
             // 
             // ribbonGroup3
             // 
-            this.ribbonGroup3.Items.Add(this.ribbonButton2);
+            this.ribbonGroup3.Items.Add(this.btnCaProducto);
             this.ribbonGroup3.Name = "ribbonGroup3";
             this.ribbonGroup3.Text = "Gestion de Productos";
             // 
-            // ribbonButton2
+            // btnCaProducto
             // 
-            this.ribbonButton2.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.LargeImage")));
-            this.ribbonButton2.Name = "ribbonButton2";
-            this.ribbonButton2.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.SmallImage")));
-            this.ribbonButton2.Text = "Productos";
+            this.btnCaProducto.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnCaProducto.LargeImage")));
+            this.btnCaProducto.Name = "btnCaProducto";
+            this.btnCaProducto.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnCaProducto.SmallImage")));
+            this.btnCaProducto.Text = "Productos";
+            this.btnCaProducto.Click += new System.EventHandler(this.ribbonButton2_Click);
+            // 
+            // ribbonTab6
+            // 
+            this.ribbonTab6.Groups.Add(this.ribbonGroup6);
+            this.ribbonTab6.Name = "ribbonTab6";
+            this.ribbonTab6.Text = "Clientes";
+            // 
+            // ribbonGroup6
+            // 
+            this.ribbonGroup6.Items.Add(this.btnCaClientes);
+            this.ribbonGroup6.Name = "ribbonGroup6";
+            this.ribbonGroup6.Text = "Gestion de Clientes";
+            // 
+            // btnCaClientes
+            // 
+            this.btnCaClientes.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnCaClientes.LargeImage")));
+            this.btnCaClientes.Name = "btnCaClientes";
+            this.btnCaClientes.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnCaClientes.SmallImage")));
+            this.btnCaClientes.Text = "Clientes";
+            this.btnCaClientes.Click += new System.EventHandler(this.btnCaClientes_Click);
             // 
             // ribbonTab4
             // 
@@ -162,26 +206,6 @@
             this.ribbonButton1.Text = "Lista de VentasRealidaz";
             this.ribbonButton1.Click += new System.EventHandler(this.btnCaReporteVentas);
             // 
-            // ribbonTab5
-            // 
-            this.ribbonTab5.Groups.Add(this.ribbonGroup5);
-            this.ribbonTab5.Name = "ribbonTab5";
-            this.ribbonTab5.Text = "Empleados";
-            // 
-            // ribbonGroup5
-            // 
-            this.ribbonGroup5.Items.Add(this.ribbonButton4);
-            this.ribbonGroup5.Name = "ribbonGroup5";
-            this.ribbonGroup5.Text = "Gestion de empleados";
-            // 
-            // ribbonButton4
-            // 
-            this.ribbonButton4.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton4.LargeImage")));
-            this.ribbonButton4.Name = "ribbonButton4";
-            this.ribbonButton4.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton4.SmallImage")));
-            this.ribbonButton4.Text = "Empleados";
-            this.ribbonButton4.Click += new System.EventHandler(this.ribbonButton4_Click);
-            // 
             // ribbonTab2
             // 
             this.ribbonTab2.Groups.Add(this.ribbonGroup2);
@@ -192,48 +216,44 @@
             // 
             this.ribbonGroup2.Items.Add(this.ribbonButton3);
             this.ribbonGroup2.Name = "ribbonGroup2";
-            this.ribbonGroup2.Text = "Ayuda";
+            this.ribbonGroup2.Text = "Gestion de Informacion";
             // 
             // ribbonButton3
             // 
             this.ribbonButton3.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton3.LargeImage")));
             this.ribbonButton3.Name = "ribbonButton3";
             this.ribbonButton3.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton3.SmallImage")));
-            this.ribbonButton3.Text = "Ayuda";
+            this.ribbonButton3.Text = "Informacion";
             // 
             // ribbonTopToolBar1
             // 
             this.ribbonTopToolBar1.Name = "ribbonTopToolBar1";
             // 
-            // ribbonTab6
+            // pictureBox1
             // 
-            this.ribbonTab6.Groups.Add(this.ribbonGroup6);
-            this.ribbonTab6.Name = "ribbonTab6";
-            this.ribbonTab6.Text = "Clientes";
-            // 
-            // ribbonGroup6
-            // 
-            this.ribbonGroup6.Items.Add(this.ribbonButton5);
-            this.ribbonGroup6.Name = "ribbonGroup6";
-            this.ribbonGroup6.Text = "Group";
-            // 
-            // ribbonButton5
-            // 
-            this.ribbonButton5.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.LargeImage")));
-            this.ribbonButton5.Name = "ribbonButton5";
-            this.ribbonButton5.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.SmallImage")));
-            this.ribbonButton5.Text = "Clientes";
+            this.pictureBox1.BackColor = System.Drawing.Color.Cyan;
+            this.pictureBox1.BackgroundImage = global::CpHeladeria.Properties.Resources.descarga;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 153);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(708, 318);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 450);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(708, 470);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.crbPrincipal);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPrincipal";
             this.Text = "::: Principal - Heladeria :::";
             ((System.ComponentModel.ISupportInitialize)(this.crbPrincipal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,11 +280,12 @@
         private C1.Win.C1Ribbon.RibbonButton ribbonButton1;
         private C1.Win.C1Ribbon.RibbonTab ribbonTab5;
         private C1.Win.C1Ribbon.RibbonGroup ribbonGroup5;
-        private C1.Win.C1Ribbon.RibbonButton ribbonButton2;
-        private C1.Win.C1Ribbon.RibbonButton ribbonButton4;
+        private C1.Win.C1Ribbon.RibbonButton btnCaProducto;
+        private C1.Win.C1Ribbon.RibbonButton btnCaEmpleados;
         private C1.Win.C1Ribbon.RibbonButton ribbonButton3;
         private C1.Win.C1Ribbon.RibbonTab ribbonTab6;
         private C1.Win.C1Ribbon.RibbonGroup ribbonGroup6;
-        private C1.Win.C1Ribbon.RibbonButton ribbonButton5;
+        private C1.Win.C1Ribbon.RibbonButton btnCaClientes;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

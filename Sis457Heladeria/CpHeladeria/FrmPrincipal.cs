@@ -36,7 +36,22 @@ namespace CpHeladeria
 
         private void ribbonButton4_Click(object sender, EventArgs e)
         {
+            new FrmEmpleado().ShowDialog();
+        }
 
+        private void ribbonButton2_Click(object sender, EventArgs e)
+        {
+            new FrmProducto().ShowDialog();
+        }
+
+        private void btnCaClientes_Click(object sender, EventArgs e)
+        {
+            new FrmCliente().ShowDialog();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
         }
     }
 }

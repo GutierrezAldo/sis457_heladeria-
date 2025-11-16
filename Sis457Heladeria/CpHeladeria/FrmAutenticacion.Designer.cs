@@ -95,7 +95,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::CpHeladeria.Properties.Resources.security_lock;
+            this.pictureBox1.Image = global::CpHeladeria.Properties.Resources.images__1_;
             this.pictureBox1.Location = new System.Drawing.Point(103, 49);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(110, 107);
@@ -143,6 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(314, 306);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblIniciarSesion);

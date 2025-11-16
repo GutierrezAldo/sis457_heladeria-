@@ -55,6 +55,8 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.gbxDetalle = new System.Windows.Forms.GroupBox();
+            this.cbxTipoPago = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.nudPrecioUnitario = new System.Windows.Forms.NumericUpDown();
             this.cbxCliente = new System.Windows.Forms.ComboBox();
             this.cbxProducto = new System.Windows.Forms.ComboBox();
@@ -69,9 +71,8 @@
             this.erpCantidad = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpProducto = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpTotalPagar = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cbxTipoPago = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.erpTipoPago = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpPrecioUnitario = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.erpNommbreCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpRazonSocial)).BeginInit();
@@ -88,6 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.erpProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpTotalPagar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpTipoPago)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpPrecioUnitario)).BeginInit();
             this.SuspendLayout();
             // 
             // erpNommbreCliente
@@ -340,6 +342,28 @@
             this.gbxDetalle.TabStop = false;
             this.gbxDetalle.Text = "2. Detalle de Productos";
             // 
+            // cbxTipoPago
+            // 
+            this.cbxTipoPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTipoPago.FormattingEnabled = true;
+            this.cbxTipoPago.Items.AddRange(new object[] {
+            "Efectivo",
+            "QR"});
+            this.cbxTipoPago.Location = new System.Drawing.Point(581, 27);
+            this.cbxTipoPago.Name = "cbxTipoPago";
+            this.cbxTipoPago.Size = new System.Drawing.Size(129, 24);
+            this.cbxTipoPago.TabIndex = 42;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(479, 32);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(96, 16);
+            this.label10.TabIndex = 41;
+            this.label10.Text = "Tipo de Pago: ";
+            // 
             // nudPrecioUnitario
             // 
             this.nudPrecioUnitario.DecimalPlaces = 2;
@@ -462,35 +486,19 @@
             // 
             this.erpTotalPagar.ContainerControl = this;
             // 
-            // cbxTipoPago
-            // 
-            this.cbxTipoPago.FormattingEnabled = true;
-            this.cbxTipoPago.Items.AddRange(new object[] {
-            "Efectivo",
-            "QR"});
-            this.cbxTipoPago.Location = new System.Drawing.Point(581, 27);
-            this.cbxTipoPago.Name = "cbxTipoPago";
-            this.cbxTipoPago.Size = new System.Drawing.Size(129, 24);
-            this.cbxTipoPago.TabIndex = 42;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(479, 32);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(96, 16);
-            this.label10.TabIndex = 41;
-            this.label10.Text = "Tipo de Pago: ";
-            // 
             // erpTipoPago
             // 
             this.erpTipoPago.ContainerControl = this;
+            // 
+            // erpPrecioUnitario
+            // 
+            this.erpPrecioUnitario.ContainerControl = this;
             // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(753, 517);
             this.Controls.Add(this.gbxDetalle);
             this.Controls.Add(this.lblProductos);
@@ -498,7 +506,7 @@
             this.Controls.Add(this.gbxRegistrar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmVenta";
-            this.Text = "::: Heladeria - FrmVenta :::";
+            this.Text = "::: Heladeria - Venta :::";
             this.Load += new System.EventHandler(this.FrmVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.erpNommbreCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpCI)).EndInit();
@@ -519,6 +527,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.erpProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpTotalPagar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpTipoPago)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpPrecioUnitario)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -567,5 +576,6 @@
         private System.Windows.Forms.ComboBox cbxTipoPago;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ErrorProvider erpTipoPago;
+        private System.Windows.Forms.ErrorProvider erpPrecioUnitario;
     }
 }

@@ -27,5 +27,7 @@ C:\Users\Nam\Documents\Informatica\Fundamentos de la programacion\LabElizabeth\s
 C:\Users\Nam\Documents\Informatica\Fundamentos de la programacion\LabElizabeth\sis457_heladeria-\Sis457Heladeria\CpHeladeria\obj\Debug\CpHelade.B5025E5C.Up2Date
 C:\Users\Nam\Documents\Informatica\Fundamentos de la programacion\LabElizabeth\sis457_heladeria-\Sis457Heladeria\CpHeladeria\obj\Debug\CpHeladeria.exe
 C:\Users\Nam\Documents\Informatica\Fundamentos de la programacion\LabElizabeth\sis457_heladeria-\Sis457Heladeria\CpHeladeria\obj\Debug\CpHeladeria.pdb
-C:\Users\Nam\Documents\Informatica\Fundamentos de la programacion\LabElizabeth\sis457_heladeria-\Sis457Heladeria\CpHeladeria\obj\Debug\CpHeladeria.exe.config
 C:\Users\Nam\Documents\Informatica\Fundamentos de la programacion\LabElizabeth\sis457_heladeria-\Sis457Heladeria\CpHeladeria\obj\Debug\CpHeladeria.FrmListaVentas.resources
+C:\Users\Nam\Documents\Informatica\Fundamentos de la programacion\LabElizabeth\sis457_heladeria-\Sis457Heladeria\CpHeladeria\obj\Debug\CpHeladeria.FrmCliente.resources
+C:\Users\Nam\Documents\Informatica\Fundamentos de la programacion\LabElizabeth\sis457_heladeria-\Sis457Heladeria\CpHeladeria\obj\Debug\CpHeladeria.FrmEmpleado.resources
+C:\Users\Nam\Documents\Informatica\Fundamentos de la programacion\LabElizabeth\sis457_heladeria-\Sis457Heladeria\CpHeladeria\obj\Debug\CpHeladeria.exe.config

@@ -186,6 +186,12 @@
       <Parameter Name="fechaInicio" Mode="In" Type="DateTime" />
       <Parameter Name="fechaFin" Mode="In" Type="DateTime" />
     </FunctionImport>
+    <FunctionImport Name="paClienteListar" ReturnType="Collection(LabHeladeriaModel.paClienteListar_Result)">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="paUsuarioEmpleadoListar" ReturnType="Collection(LabHeladeriaModel.paUsuarioEmpleadoListar_Result)">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="paProductoListar_Result">
     <Property Type="Int32" Name="id" Nullable="false" />
@@ -204,5 +210,30 @@
     <Property Type="String" Name="Cliente" Nullable="false" MaxLength="100" />
     <Property Type="String" Name="tipoPago" Nullable="false" MaxLength="20" />
     <Property Type="Decimal" Name="MontoVenta" Nullable="true" Precision="38" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="paClienteListar_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="100" />
+    <Property Type="Int64" Name="ci" Nullable="true" />
+    <Property Type="String" Name="razonSocial" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="telefono" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
+    <Property Type="Int16" Name="estado" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="paUsuarioEmpleadoListar_Result">
+    <Property Type="Int32" Name="idUsuario" Nullable="false" />
+    <Property Type="String" Name="usuario" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="role" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="idEmpleado" Nullable="false" />
+    <Property Type="String" Name="nombres" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="primerApellido" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="segundoApellido" Nullable="true" MaxLength="30" />
+    <Property Type="Int64" Name="telefono" Nullable="false" />
+    <Property Type="String" Name="direccion" Nullable="false" MaxLength="250" />
+    <Property Type="DateTime" Name="fechaContratacion" Nullable="false" />
+    <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
+    <Property Type="Int16" Name="estado" Nullable="false" />
   </ComplexType>
 </Schema>

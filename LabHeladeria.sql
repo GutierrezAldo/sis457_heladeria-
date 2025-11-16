@@ -198,9 +198,83 @@ GO
 
 -- Ejemplo de ejecución del procedimiento almacenado paVentaListarRango
 EXEC paVentaListarRango '2024-01-01', '2024-12-31';
+GO
 
+CREATE OR ALTER PROC paClienteListar
+    @parametro VARCHAR(50) = '' 
+AS
+BEGIN
+    SET NOCOUNT ON;
 
+    SELECT
+        id,
+        nombre,
+        ci,
+        razonSocial,
+        telefono,
+        usuarioRegistro,
+        fechaRegistro,
+        estado
+    FROM
+        Cliente
+    WHERE
+        estado = 1
+        AND
+        (
+            (@parametro IS NULL OR @parametro = '')
+            OR
+            (
+                nombre LIKE '%' + @parametro + '%'
+                OR razonSocial LIKE '%' + @parametro + '%'
+                OR CONVERT(VARCHAR(20), ci) LIKE '%' + @parametro + '%'
+            )
+        )
+    ORDER BY
+        nombre ASC;
+END
+GO
 
+CREATE OR ALTER PROC paUsuarioEmpleadoListar
+    @parametro VARCHAR(100) = '' 
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        U.id AS idUsuario,
+        U.usuario,
+        U.role,
+        E.id AS idEmpleado,
+        E.nombres,
+        E.primerApellido,
+        E.segundoApellido,
+        E.telefono,
+        E.direccion,
+        E.fechaContratacion,
+        E.usuarioRegistro,
+        E.fechaRegistro,
+        E.estado
+    FROM
+        Usuario U
+    INNER JOIN
+        Empleado E ON U.idEmpleado = E.id
+    WHERE
+        E.estado = 1
+        AND
+        (
+            (@parametro IS NULL OR @parametro = '')
+            OR
+            (
+                E.nombres LIKE '%' + @parametro + '%'
+                OR E.primerApellido LIKE '%' + @parametro + '%'
+                OR E.segundoApellido LIKE '%' + @parametro + '%'
+                OR U.usuario LIKE '%' + @parametro + '%'
+            )
+        )
+    ORDER BY
+        E.primerApellido, E.nombres ASC;
+END
+GO
 
 
 

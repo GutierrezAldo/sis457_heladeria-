@@ -55,5 +55,23 @@ namespace CadHeladeria
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paVentaListarRango_Result>("paVentaListarRango", fechaInicioParameter, fechaFinParameter);
         }
+    
+        public virtual ObjectResult<paClienteListar_Result> paClienteListar(string parametro)
+        {
+            var parametroParameter = parametro != null ?
+                new ObjectParameter("parametro", parametro) :
+                new ObjectParameter("parametro", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paClienteListar_Result>("paClienteListar", parametroParameter);
+        }
+    
+        public virtual ObjectResult<paUsuarioEmpleadoListar_Result> paUsuarioEmpleadoListar(string parametro)
+        {
+            var parametroParameter = parametro != null ?
+                new ObjectParameter("parametro", parametro) :
+                new ObjectParameter("parametro", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paUsuarioEmpleadoListar_Result>("paUsuarioEmpleadoListar", parametroParameter);
+        }
     }
 }

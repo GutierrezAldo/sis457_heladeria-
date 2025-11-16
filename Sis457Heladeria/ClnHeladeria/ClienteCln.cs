@@ -64,5 +64,12 @@ namespace ClnHeladeria
                 return context.Cliente.Where(p => p.estado == 1).ToList();
             }
         }
+        public static List<paClienteListar_Result> listarPa(string parametro)
+        {
+            using (var context = new LabHeladeriaEntities())
+            {
+                return context.paClienteListar(parametro).ToList();
+            }
+        }
     }
 }
