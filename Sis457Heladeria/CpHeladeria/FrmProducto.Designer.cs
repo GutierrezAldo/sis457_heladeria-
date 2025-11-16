@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProducto));
             this.lblBuscar = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -38,20 +39,37 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.gbxDatos = new System.Windows.Forms.GroupBox();
+            this.cbxUnidadMedida = new System.Windows.Forms.ComboBox();
+            this.cbxSabor = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.nudPrecio = new System.Windows.Forms.NumericUpDown();
             this.gbxListado = new System.Windows.Forms.GroupBox();
             this.dgvLista = new System.Windows.Forms.DataGridView();
-            this.pnlCRUD = new System.Windows.Forms.Panel();
+            this.pnlAcciones = new System.Windows.Forms.Panel();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.lblProductos = new System.Windows.Forms.Label();
+            this.erpNombre = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpUnidadMedida = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpPrecio = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpSabor = new System.Windows.Forms.ErrorProvider(this.components);
+            this.nudStock = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.erpStock = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbxDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
             this.gbxListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
-            this.pnlCRUD.SuspendLayout();
+            this.pnlAcciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erpNombre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpUnidadMedida)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpPrecio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpSabor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpStock)).BeginInit();
             this.SuspendLayout();
             // 
             // lblBuscar
@@ -69,7 +87,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(68, 27);
+            this.lblNombre.Location = new System.Drawing.Point(37, 24);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(62, 16);
             this.lblNombre.TabIndex = 3;
@@ -79,7 +97,7 @@
             // 
             this.lblPrecio.AutoSize = true;
             this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecio.Location = new System.Drawing.Point(68, 54);
+            this.lblPrecio.Location = new System.Drawing.Point(37, 95);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(49, 16);
             this.lblPrecio.TabIndex = 4;
@@ -91,13 +109,14 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(255, 20);
             this.txtBuscar.TabIndex = 5;
+            this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParametro_KeyPress);
             // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::CpHeladeria.Properties.Resources.cancel;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(459, 51);
+            this.btnCancelar.Location = new System.Drawing.Point(459, 89);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(102, 41);
             this.btnCancelar.TabIndex = 9;
@@ -111,13 +130,14 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::CpHeladeria.Properties.Resources.save;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(364, 51);
+            this.btnGuardar.Location = new System.Drawing.Point(364, 89);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(95, 41);
             this.btnGuardar.TabIndex = 8;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnBuscar
             // 
@@ -135,13 +155,19 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(150, 25);
+            this.txtNombre.Location = new System.Drawing.Point(151, 25);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(139, 22);
             this.txtNombre.TabIndex = 14;
             // 
             // gbxDatos
             // 
+            this.gbxDatos.Controls.Add(this.nudStock);
+            this.gbxDatos.Controls.Add(this.label3);
+            this.gbxDatos.Controls.Add(this.cbxUnidadMedida);
+            this.gbxDatos.Controls.Add(this.cbxSabor);
+            this.gbxDatos.Controls.Add(this.label2);
+            this.gbxDatos.Controls.Add(this.label1);
             this.gbxDatos.Controls.Add(this.nudPrecio);
             this.gbxDatos.Controls.Add(this.txtNombre);
             this.gbxDatos.Controls.Add(this.btnGuardar);
@@ -151,15 +177,62 @@
             this.gbxDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxDatos.Location = new System.Drawing.Point(15, 263);
             this.gbxDatos.Name = "gbxDatos";
-            this.gbxDatos.Size = new System.Drawing.Size(567, 98);
+            this.gbxDatos.Size = new System.Drawing.Size(567, 143);
             this.gbxDatos.TabIndex = 15;
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Datos";
             // 
+            // cbxUnidadMedida
+            // 
+            this.cbxUnidadMedida.FormattingEnabled = true;
+            this.cbxUnidadMedida.Items.AddRange(new object[] {
+            "Vaso Pequeño",
+            "Vaso Mediano",
+            "Vaso Grande"});
+            this.cbxUnidadMedida.Location = new System.Drawing.Point(151, 56);
+            this.cbxUnidadMedida.Name = "cbxUnidadMedida";
+            this.cbxUnidadMedida.Size = new System.Drawing.Size(139, 24);
+            this.cbxUnidadMedida.TabIndex = 19;
+            // 
+            // cbxSabor
+            // 
+            this.cbxSabor.FormattingEnabled = true;
+            this.cbxSabor.Items.AddRange(new object[] {
+            "Vainilla",
+            "Chocolate",
+            "Menta",
+            "Fresa",
+            "De frutas",
+            "Dulce de leche"});
+            this.cbxSabor.Location = new System.Drawing.Point(399, 24);
+            this.cbxSabor.Name = "cbxSabor";
+            this.cbxSabor.Size = new System.Drawing.Size(135, 24);
+            this.cbxSabor.TabIndex = 18;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(342, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 16);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Sabor: ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(37, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 16);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Unidad Medida: ";
+            // 
             // nudPrecio
             // 
             this.nudPrecio.DecimalPlaces = 2;
-            this.nudPrecio.Location = new System.Drawing.Point(150, 54);
+            this.nudPrecio.Location = new System.Drawing.Point(151, 89);
             this.nudPrecio.Name = "nudPrecio";
             this.nudPrecio.Size = new System.Drawing.Size(139, 22);
             this.nudPrecio.TabIndex = 15;
@@ -178,6 +251,7 @@
             // dgvLista
             // 
             this.dgvLista.AllowUserToAddRows = false;
+            this.dgvLista.AllowUserToDeleteRows = false;
             this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLista.Location = new System.Drawing.Point(6, 21);
             this.dgvLista.Name = "dgvLista";
@@ -185,16 +259,16 @@
             this.dgvLista.Size = new System.Drawing.Size(555, 102);
             this.dgvLista.TabIndex = 8;
             // 
-            // pnlCRUD
+            // pnlAcciones
             // 
-            this.pnlCRUD.Controls.Add(this.btnNuevo);
-            this.pnlCRUD.Controls.Add(this.btnEditar);
-            this.pnlCRUD.Controls.Add(this.btnEliminar);
-            this.pnlCRUD.Controls.Add(this.btnCerrar);
-            this.pnlCRUD.Location = new System.Drawing.Point(15, 208);
-            this.pnlCRUD.Name = "pnlCRUD";
-            this.pnlCRUD.Size = new System.Drawing.Size(564, 49);
-            this.pnlCRUD.TabIndex = 17;
+            this.pnlAcciones.Controls.Add(this.btnNuevo);
+            this.pnlAcciones.Controls.Add(this.btnEditar);
+            this.pnlAcciones.Controls.Add(this.btnEliminar);
+            this.pnlAcciones.Controls.Add(this.btnCerrar);
+            this.pnlAcciones.Location = new System.Drawing.Point(15, 208);
+            this.pnlAcciones.Name = "pnlAcciones";
+            this.pnlAcciones.Size = new System.Drawing.Size(564, 49);
+            this.pnlAcciones.TabIndex = 17;
             // 
             // btnNuevo
             // 
@@ -236,6 +310,7 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnCerrar
             // 
@@ -249,6 +324,7 @@
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // lblProductos
             // 
@@ -262,13 +338,50 @@
             this.lblProductos.Text = "Productos";
             this.lblProductos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // erpNombre
+            // 
+            this.erpNombre.ContainerControl = this;
+            // 
+            // erpUnidadMedida
+            // 
+            this.erpUnidadMedida.ContainerControl = this;
+            // 
+            // erpPrecio
+            // 
+            this.erpPrecio.ContainerControl = this;
+            // 
+            // erpSabor
+            // 
+            this.erpSabor.ContainerControl = this;
+            // 
+            // nudStock
+            // 
+            this.nudStock.Location = new System.Drawing.Point(395, 61);
+            this.nudStock.Name = "nudStock";
+            this.nudStock.Size = new System.Drawing.Size(139, 22);
+            this.nudStock.TabIndex = 21;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(340, 63);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 16);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Stock:";
+            // 
+            // erpStock
+            // 
+            this.erpStock.ContainerControl = this;
+            // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(594, 360);
-            this.Controls.Add(this.pnlCRUD);
+            this.ClientSize = new System.Drawing.Size(594, 409);
+            this.Controls.Add(this.pnlAcciones);
             this.Controls.Add(this.gbxListado);
             this.Controls.Add(this.gbxDatos);
             this.Controls.Add(this.btnBuscar);
@@ -284,7 +397,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).EndInit();
             this.gbxListado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
-            this.pnlCRUD.ResumeLayout(false);
+            this.pnlAcciones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.erpNombre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpUnidadMedida)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpPrecio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpSabor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpStock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,12 +422,23 @@
         private System.Windows.Forms.NumericUpDown nudPrecio;
         private System.Windows.Forms.GroupBox gbxListado;
         private System.Windows.Forms.DataGridView dgvLista;
-        private System.Windows.Forms.Panel pnlCRUD;
+        private System.Windows.Forms.Panel pnlAcciones;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Label lblProductos;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbxUnidadMedida;
+        private System.Windows.Forms.ComboBox cbxSabor;
+        private System.Windows.Forms.ErrorProvider erpNombre;
+        private System.Windows.Forms.ErrorProvider erpUnidadMedida;
+        private System.Windows.Forms.ErrorProvider erpPrecio;
+        private System.Windows.Forms.ErrorProvider erpSabor;
+        private System.Windows.Forms.NumericUpDown nudStock;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ErrorProvider erpStock;
     }
 }
 

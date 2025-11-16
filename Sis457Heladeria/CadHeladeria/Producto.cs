@@ -17,19 +17,19 @@ namespace CadHeladeria
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Producto()
         {
-            this.Sabor = new HashSet<Sabor>();
             this.VentaDetalle = new HashSet<VentaDetalle>();
         }
     
         public int id { get; set; }
         public string nombre { get; set; }
+        public string unidaMedida { get; set; }
+        public string sabor { get; set; }
         public decimal precio { get; set; }
+        public int stock { get; set; }
         public string usuarioRegistro { get; set; }
         public System.DateTime fechaRegistro { get; set; }
         public short estado { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sabor> Sabor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VentaDetalle> VentaDetalle { get; set; }
     }

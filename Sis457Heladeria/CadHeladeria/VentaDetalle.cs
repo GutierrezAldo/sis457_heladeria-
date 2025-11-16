@@ -20,6 +20,7 @@ namespace CadHeladeria
         public decimal cantidad { get; set; }
         public decimal precioUnitario { get; set; }
         public decimal total { get; set; }
+        public string tipoPago { get; set; }
         public string usuarioRegistro { get; set; }
         public System.DateTime fechaRegistro { get; set; }
         public short estado { get; set; }

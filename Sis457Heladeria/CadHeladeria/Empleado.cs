@@ -17,7 +17,6 @@ namespace CadHeladeria
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Empleado()
         {
-            this.Pedido = new HashSet<Pedido>();
             this.Usuario = new HashSet<Usuario>();
         }
     
@@ -25,7 +24,6 @@ namespace CadHeladeria
         public string nombres { get; set; }
         public string primerApellido { get; set; }
         public string segundoApellido { get; set; }
-        public string cargo { get; set; }
         public System.DateTime fechaContratacion { get; set; }
         public long telefono { get; set; }
         public string direccion { get; set; }
@@ -33,8 +31,6 @@ namespace CadHeladeria
         public System.DateTime fechaRegistro { get; set; }
         public short estado { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pedido> Pedido { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuario> Usuario { get; set; }
     }

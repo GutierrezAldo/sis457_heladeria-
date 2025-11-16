@@ -29,9 +29,7 @@ namespace CadHeladeria
     
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Empleado> Empleado { get; set; }
-        public virtual DbSet<Pedido> Pedido { get; set; }
         public virtual DbSet<Producto> Producto { get; set; }
-        public virtual DbSet<Sabor> Sabor { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<Venta> Venta { get; set; }
         public virtual DbSet<VentaDetalle> VentaDetalle { get; set; }
@@ -43,6 +41,19 @@ namespace CadHeladeria
                 new ObjectParameter("parametro", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paProductoListar_Result>("paProductoListar", parametroParameter);
+        }
+    
+        public virtual ObjectResult<paVentaListarRango_Result> paVentaListarRango(Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin)
+        {
+            var fechaInicioParameter = fechaInicio.HasValue ?
+                new ObjectParameter("fechaInicio", fechaInicio) :
+                new ObjectParameter("fechaInicio", typeof(System.DateTime));
+    
+            var fechaFinParameter = fechaFin.HasValue ?
+                new ObjectParameter("fechaFin", fechaFin) :
+                new ObjectParameter("fechaFin", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paVentaListarRango_Result>("paVentaListarRango", fechaInicioParameter, fechaFinParameter);
         }
     }
 }

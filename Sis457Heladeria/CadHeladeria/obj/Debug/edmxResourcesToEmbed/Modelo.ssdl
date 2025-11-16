@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="LabHeladeriaModelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="LabHeladeriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Cliente">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ci" Type="bigint" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ci" Type="bigint" />
     <Property Name="razonSocial" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="telefono" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="30" />
     <Property Name="usuarioRegistro" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="fechaRegistro" Type="datetime" Nullable="false" />
     <Property Name="estado" Type="smallint" Nullable="false" />
@@ -20,7 +21,6 @@
     <Property Name="nombres" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="primerApellido" Type="varchar" MaxLength="30" />
     <Property Name="segundoApellido" Type="varchar" MaxLength="30" />
-    <Property Name="cargo" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="fechaContratacion" Type="date" Nullable="false" />
     <Property Name="telefono" Type="bigint" Nullable="false" />
     <Property Name="direccion" Type="varchar" MaxLength="250" Nullable="false" />
@@ -28,35 +28,16 @@
     <Property Name="fechaRegistro" Type="datetime" Nullable="false" />
     <Property Name="estado" Type="smallint" Nullable="false" />
   </EntityType>
-  <EntityType Name="Pedido">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idCliente" Type="int" Nullable="false" />
-    <Property Name="idEmpleado" Type="int" Nullable="false" />
-    <Property Name="fechaPedido" Type="date" Nullable="false" />
-    <Property Name="tipoPago" Type="varchar" MaxLength="250" Nullable="false" />
-    <Property Name="estadoEntrega" Type="varchar" MaxLength="250" Nullable="false" />
-  </EntityType>
   <EntityType Name="Producto">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="unidaMedida" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="sabor" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="precio" Type="decimal" Precision="18" Scale="0" Nullable="false" />
-    <Property Name="usuarioRegistro" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="fechaRegistro" Type="datetime" Nullable="false" />
-    <Property Name="estado" Type="smallint" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Sabor">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idProducto" Type="int" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="250" />
+    <Property Name="stock" Type="int" Nullable="false" />
     <Property Name="usuarioRegistro" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="fechaRegistro" Type="datetime" Nullable="false" />
     <Property Name="estado" Type="smallint" Nullable="false" />
@@ -69,6 +50,7 @@
     <Property Name="idEmpleado" Type="int" Nullable="false" />
     <Property Name="usuario" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="clave" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="role" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="usuarioRegistro" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="fechaRegistro" Type="datetime" Nullable="false" />
     <Property Name="estado" Type="smallint" Nullable="false" />
@@ -95,46 +77,11 @@
     <Property Name="cantidad" Type="decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="precioUnitario" Type="decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="total" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="tipoPago" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="usuarioRegistro" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="fechaRegistro" Type="datetime" Nullable="false" />
     <Property Name="estado" Type="smallint" Nullable="false" />
   </EntityType>
-  <Association Name="fk_Pedido_Cliente">
-    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
-    <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cliente">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Pedido">
-        <PropertyRef Name="idCliente" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_Pedido_Empleado">
-    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
-    <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Empleado">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Pedido">
-        <PropertyRef Name="idEmpleado" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_Sabor_Producto">
-    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
-    <End Role="Sabor" Type="Self.Sabor" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Producto">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Sabor">
-        <PropertyRef Name="idProducto" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk_Usuario_Empleado">
     <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
     <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
@@ -198,27 +145,17 @@
   <Function Name="paProductoListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="parametro" Type="varchar" Mode="In" />
   </Function>
-  <EntityContainer Name="LabHeladeriaModeloStoreContainer">
+  <Function Name="paVentaListarRango" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fechaInicio" Type="date" Mode="In" />
+    <Parameter Name="fechaFin" Type="date" Mode="In" />
+  </Function>
+  <EntityContainer Name="LabHeladeriaModelStoreContainer">
     <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Sabor" EntityType="Self.Sabor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Venta" EntityType="Self.Venta" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VentaDetalle" EntityType="Self.VentaDetalle" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="fk_Pedido_Cliente" Association="Self.fk_Pedido_Cliente">
-      <End Role="Cliente" EntitySet="Cliente" />
-      <End Role="Pedido" EntitySet="Pedido" />
-    </AssociationSet>
-    <AssociationSet Name="fk_Pedido_Empleado" Association="Self.fk_Pedido_Empleado">
-      <End Role="Empleado" EntitySet="Empleado" />
-      <End Role="Pedido" EntitySet="Pedido" />
-    </AssociationSet>
-    <AssociationSet Name="fk_Sabor_Producto" Association="Self.fk_Sabor_Producto">
-      <End Role="Producto" EntitySet="Producto" />
-      <End Role="Sabor" EntitySet="Sabor" />
-    </AssociationSet>
     <AssociationSet Name="fk_Usuario_Empleado" Association="Self.fk_Usuario_Empleado">
       <End Role="Empleado" EntitySet="Empleado" />
       <End Role="Usuario" EntitySet="Usuario" />

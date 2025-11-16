@@ -25,10 +25,13 @@ namespace ClnHeladeria
 
             using (var context = new LabHeladeriaEntities())
             {
-                var existe = context.Producto.Find(producto.id);
+                var existe = context.Producto.Find((object)producto.id);
 
                 existe.nombre = producto.nombre;
+                existe.unidaMedida = producto.unidaMedida;
+                existe.sabor = producto.sabor;
                 existe.precio = producto.precio;
+                existe.stock = producto.stock;
                 return context.SaveChanges();
             }
 
