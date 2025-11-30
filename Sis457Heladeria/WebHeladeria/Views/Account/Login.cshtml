@@ -6,79 +6,86 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container d-flex justify-content-center align-items-center" style="min-height: 90vh;">
-    <div class="card shadow-lg p-4 rounded" style="width: 100%; max-width: 400px;">
-        <h3 class="text-center mb-4 text-primary">Acceso al Sistema</h3>
+<!-- Fondo general -->
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 90vh; background-color: #FFF8F0;">
 
+    <!-- Tarjeta del formulario -->
+    <div class="card shadow-lg p-4 rounded-4" style="width: 100%; max-width: 400px; background-color: #FFD6DC; border: 2px solid #FF9AA2;">
+
+        <!-- Logo Heladería -->
+        <div class="text-center mb-4">
+            <img src="~/images/logo.png" alt="Logo Heladería" style="width: 120px; border-radius: 50%; border: 3px solid #FF9AA2;">
+        </div>
+
+        <h3 class="text-center mb-4" style="color:#FF4C68;">Acceso al Sistema</h3>
+
+        <!-- Formulario -->
         <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
+            <!-- Usuario -->
             <div class="mb-3">
                 <label asp-for="usuario" class="form-label text-dark">Usuario</label>
-                <input asp-for="usuario" class="form-control" placeholder="Ingrese su usuario" required />
+                <div class="input-group">
+                    <span class="input-group-text bg-white">
+                        <i class="bi bi-person-fill" style="color:#FF4C68;"></i>
+                    </span>
+                    <input asp-for="usuario" class="form-control" placeholder="Ingrese su usuario" required />
+                </div>
                 <span asp-validation-for="usuario" class="text-danger"></span>
             </div>
 
-            <div class="mb-3">
+            <!-- Contraseña con ojito -->
+            <div class="mb-3 position-relative">
                 <label asp-for="clave" class="form-label text-dark">Contraseña</label>
-                <input asp-for="clave" type="password" class="form-control" placeholder="Ingrese su contraseña" required />
+                <div class="input-group">
+                    <span class="input-group-text bg-white">
+                        <i class="bi bi-lock-fill" style="color:#FF4C68;"></i>
+                    </span>
+                    <input asp-for="clave" type="password" class="form-control" placeholder="Ingrese su contraseña" id="password" required />
+                    <span class="input-group-text bg-white" style="cursor:pointer;" onclick="togglePassword()">
+                        <i class="bi bi-eye" id="toggleIcon" style="color:#FF4C68;"></i>
+                    </span>
+                </div>
                 <span asp-validation-for="clave" class="text-danger"></span>
             </div>
 
+            <!-- Recordarme -->
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="recordarme" name="recordarme" />
-                <label class="form-check-label" for="recordarme">Recordarme</label>
+                <label class="form-check-label text-dark" for="recordarme">Recordarme</label>
             </div>
 
+            <!-- Botón -->
             <div class="d-grid mb-3">
-                <button type="submit" class="btn btn-primary">
-                    <i class="fa fa-sign-in-alt"></i> Iniciar Sesión
+                <button type="submit" class="btn" style="background-color:#FF4C68; color:white; font-weight:bold;">
+                    Iniciar Sesión
                 </button>
             </div>
 
             <div class="text-center">
-                <a asp-controller="Account" asp-action="ResetPassword">¿Olvidaste tu contraseña?</a>
+                <a asp-controller="Account" asp-action="ResetPassword" style="color:#FF4C68;">¿Olvidaste tu contraseña?</a>
             </div>
         </form>
     </div>
 </div>
 
 @section Scripts {
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const icon = document.getElementById('toggleIcon');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.replace('bi-eye', 'bi-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.replace('bi-eye-slash', 'bi-eye');
+            }
+        }
+    </script>
+
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
-
-@* @{
-	ViewData["Title"] = "Login !";
-	Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-<h1>Login</h1>
-
-<form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" role="form">
-	<div class="font-weight-bold">Iniciar Sesión</div>
-	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-	<div class="form-group">
-		<label asp-for="usuario" class="control-label"></label>
-		<input asp-for="usuario" class="form-control" placeholder="Usuario" required />
-		<span asp-validation-for="usuario" class="text-danger"></span>
-	</div>
-	<div class="form-group">
-		<label asp-for="clave" class="control-label"></label>
-		<input asp-for="clave" type="password" class="form-control" placeholder="Contraseña" required />
-		<span asp-validation-for="clave" class="text-danger"></span>
-	</div>
-	<div class="row" style="margin-top:50px;">
-		<div class="col-xs-7">
-			<input type="checkbox" name="recordarme" id="recordarme" />
-			<label for="recordarme">Recordarme</label>
-		</div>
-		<div class="col-xs-5">
-			<input type="submit" value="Iniciar Sesión" class="btn btn-primary" />
-		</div>
-	</div>
-	<div class="col-xs-12 text-center">
-		<a asp-controller="Account" asp-action="ResetPassword">¿Se te olvidó la contraseña?</a>
-	</div>
-</form> *@

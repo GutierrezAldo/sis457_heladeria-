@@ -52,8 +52,8 @@ namespace WebHeladeria.Controllers
                 {
                     new Claim(ClaimTypes.Name, usuario.Usuario1),
                     new Claim("FullName", $"{usuario.IdEmpleadoNavigation.Nombres} {usuario.IdEmpleadoNavigation.PrimerApellido} {usuario.IdEmpleadoNavigation.SegundoApellido}"),
-                    new Claim(ClaimTypes.Email, "carol.ss@12.bo"),
-                    new Claim(ClaimTypes.Role, "admin", ClaimValueTypes.String)
+                    new Claim(ClaimTypes.Email, "deli@gmail.com"),
+                    new Claim(ClaimTypes.Role, "ADMINISTRADOR", ClaimValueTypes.String)
                 };
 
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
