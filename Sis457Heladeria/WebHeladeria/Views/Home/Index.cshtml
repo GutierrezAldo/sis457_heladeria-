@@ -174,68 +174,125 @@
 </div>
 
 <!-- testimonial section end -->
-<!-- contact section start -->
-<div id="contacto" class="contact_section layout_padding">
-    <div class="contact_section layout_padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="contact_main">
-                        <h1 class="contact_taital">Contáctanos</h1>
-                        <form action="/action_page.php">
-                            <div class="form-group">
-                                <input type="text" class="email-bt" placeholder="NOMBRE" name="Name">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="email-bt" placeholder="CORREO ELECTRÓNICO" name="Name">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="email-bt" placeholder="TELÉFONO" name="Email">
-                            </div>
-                            <div class="form-group">
-                                <textarea class="massage-bt" placeholder="MENSAJE" rows="5" id="comment" name="Massage"></textarea>
-                            </div>
-                        </form>
-                        <div class="main_bt"><a href="#">ENVIAR</a></div>
+<!-- CONTACTO - HELADERÍA EL ARTE -->
+<div id="contacto" class="contact_section py-5" style="background: #fff5fa;">
+    <div class="container">
+
+        <div class="row align-items-start">
+
+            <!-- FORMULARIO -->
+            <div class="col-md-5">
+                <h2 class="mb-4" style="color:#8B005D; font-weight:700;">Contáctanos</h2>
+
+                <form>
+                    <div class="form-group mb-3">
+                        <input type="text" class="form-control p-3"
+                               placeholder="Nombre completo">
                     </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="location_text">
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <span class="padding_left_10 active"><i class="fa fa-map-marker" aria-hidden="true"></i></span> Avenida las Américas #123, Heladería ICE FRUIT
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="padding_left_10"><i class="fa fa-phone" aria-hidden="true"></i></span>Teléfono: +591 78645212
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="padding_left_10"><i class="fa fa-envelope" aria-hidden="true"></i></span> Email: contacto@heladeriaicefruit.com
-                                </a>
-                            </li>
-                        </ul>
+
+                    <div class="form-group mb-3">
+                        <input type="email" class="form-control p-3"
+                               placeholder="Correo electrónico">
                     </div>
-                    <div class="mail_main">
-                        <h3 class="newsletter_text">Boletín de novedades</h3>
-                        <div class="form-group">
-                            <textarea class="update_mail" placeholder="INGRESA TU CORREO ELECTRÓNICO" rows="5" id="comment" name="Enter Your Email"></textarea>
-                            <div class="subscribe_bt"><a href="#">Suscribirse</a></div>
-                        </div>
+
+                    <div class="form-group mb-3">
+                        <input type="text" class="form-control p-3"
+                               placeholder="Teléfono">
                     </div>
-                    <div class="footer_social_icon">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                        </ul>
+
+                    <div class="form-group mb-3">
+                        <textarea class="form-control p-3" rows="5"
+                                  placeholder="Escribe tu mensaje"></textarea>
                     </div>
-                </div>
+
+                    <button type="submit"
+                            class="btn btn-lg w-100"
+                            style="background:#8B005D; color:white; border-radius:10px;">
+                        Enviar mensaje
+                    </button>
+                </form>
             </div>
+
+            <!-- INFORMACIÓN Y REDES -->
+            <div class="col-md-7 mt-5 mt-md-0">
+
+                <!-- INFORMACIÓN -->
+                <div class="p-4 mb-4"
+                     style="background:white; border-radius:15px; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+
+                    <h4 class="mb-4" style="color:#8B005D;">Información de contacto</h4>
+
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="fa fa-map-marker me-2" style="color:#8B005D;"></i>
+                            <strong>Dirección:</strong> Avenida el Maestro Nro. 57
+                        </li>
+
+                        <li class="mb-3">
+                            <i class="fa fa-phone me-2" style="color:#8B005D;"></i>
+                            <strong>Teléfono:</strong> +591 78645212
+                        </li>
+
+                        <li>
+                            <i class="fa fa-envelope me-2" style="color:#8B005D;"></i>
+                            <strong>Email:</strong> contacto@heladeriaelarte.com
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- BOLETÍN -->
+                <div class="p-4 mb-4"
+                     style="background:white; border-radius:15px; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+
+                    <h5 class="mb-3" style="color:#8B005D; font-weight:600;">
+                        Boletín de novedades
+                    </h5>
+
+                    <div class="d-flex">
+                        <input type="email" class="form-control p-3 me-2"
+                               placeholder="Ingresa tu correo">
+                        <button class="btn px-4"
+                                style="background:#8B005D; color:white; border-radius:10px;">
+                            Suscribirse
+                        </button>
+                    </div>
+                </div>
+
+                <!-- REDES SOCIALES -->
+                <div class="text-center">
+                    <ul class="list-inline">
+                        <li class="list-inline-item mx-2">
+                            <a href="#">
+                                <i class="fa fa-facebook"
+                                   style="font-size:28px; color:#8B005D;"></i>
+                            </a>
+                        </li>
+
+                        <li class="list-inline-item mx-2">
+                            <a href="#">
+                                <i class="fa fa-instagram"
+                                   style="font-size:28px; color:#8B005D;"></i>
+                            </a>
+                        </li>
+
+                        <li class="list-inline-item mx-2">
+                            <a href="#">
+                                <i class="fa fa-twitter"
+                                   style="font-size:28px; color:#8B005D;"></i>
+                            </a>
+                        </li>
+
+                        <li class="list-inline-item mx-2">
+                            <a href="#">
+                                <i class="fa fa-whatsapp"
+                                   style="font-size:28px; color:#8B005D;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
         </div>
     </div>
 </div>
