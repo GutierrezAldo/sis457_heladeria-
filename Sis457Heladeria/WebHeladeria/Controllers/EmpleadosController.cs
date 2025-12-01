@@ -83,17 +83,18 @@ namespace WebHeladeria.Controllers
             ModelState.Remove("UsuarioRegistro");
             ModelState.Remove("FechaRegistro");
             ModelState.Remove("Estado");
-
-            // Asignar campos de auditoría por el servidor
-            empleado.FechaRegistro = DateTime.Now;
-            empleado.UsuarioRegistro = User.Identity?.Name ?? "Sistema";
-            empleado.Estado = 1;
+            ModelState.Remove("IdCargoNavigation");
 
             // Validar el modelo después de remover campos de auditoría
             if (ModelState.IsValid)
             {
                 try
                 {
+                    // Asignar campos de auditoría por el servidor
+                    empleado.FechaRegistro = DateTime.Now;
+                    empleado.UsuarioRegistro = User.Identity?.Name ?? "Sistema";
+                    empleado.Estado = 1;
+
                     _context.Add(empleado);
                     await _context.SaveChangesAsync();
                     TempData["Mensaje"] = "Empleado registrado exitosamente.";
@@ -138,10 +139,33 @@ namespace WebHeladeria.Controllers
                 return NotFound();
             }
 
+            // Limpiar espacios en blanco
+            if(!string.IsNullOrWhiteSpace(empleado.Nombres))
+            {
+                empleado.Nombres = empleado.Nombres.Trim();
+            }
+            if(!string.IsNullOrWhiteSpace(empleado.PrimerApellido))
+            {
+                empleado.PrimerApellido = empleado.PrimerApellido.Trim();
+            }
+            if(!string.IsNullOrWhiteSpace(empleado.SegundoApellido))
+            {
+                empleado.SegundoApellido = empleado.SegundoApellido.Trim();
+            }
+            if(!string.IsNullOrWhiteSpace(empleado.Telefono))
+            {
+                empleado.Telefono = empleado.Telefono.Trim();
+            }
+            if(!string.IsNullOrWhiteSpace(empleado.Direccion))
+            {
+                empleado.Direccion = empleado.Direccion.Trim();
+            }
+
             // Remover campos de auditoría del ModelState
             ModelState.Remove("UsuarioRegistro");
             ModelState.Remove("FechaRegistro");
             ModelState.Remove("Estado");
+            ModelState.Remove("IdCargoNavigation");
 
             if (ModelState.IsValid)
             {
@@ -155,15 +179,16 @@ namespace WebHeladeria.Controllers
                     }
 
                     // Actualizar solo los campos editables
-                    existente.Nombres = empleado.Nombres.Trim();
-                    existente.PrimerApellido = empleado.PrimerApellido.Trim();
-                    existente.SegundoApellido = empleado.SegundoApellido?.Trim();
-                    existente.Telefono = empleado.Telefono.Trim();
-                    existente.Direccion = empleado.Direccion.Trim();
+                    existente.Nombres = empleado.Nombres;
+                    existente.PrimerApellido = empleado.PrimerApellido;
+                    existente.SegundoApellido = empleado.SegundoApellido;
+                    existente.Telefono = empleado.Telefono;
+                    existente.Direccion = empleado.Direccion;
                     existente.IdCargo = empleado.IdCargo;
 
                     // No modificar UsuarioRegistro/FechaRegistro para preservar auditoría
 
+                    _context.Update(existente);
                     await _context.SaveChangesAsync();
                     TempData["Mensaje"] = "Empleado editado exitosamente.";
                     return RedirectToAction(nameof(Index));

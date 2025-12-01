@@ -13,11 +13,11 @@ public partial class Empleado
     public string Nombres { get; set; } = null!;
 
     [Required(ErrorMessage = "El primer apellido es requerido")]
-    [StringLength(100, ErrorMessage = "El primer apellido no puede exceder 100 caracteres")]
+    [StringLength(80, ErrorMessage = "El primer apellido no puede exceder 80 caracteres")]
     public string PrimerApellido { get; set; } = null!;
 
-    [StringLength(100, ErrorMessage = "El segundo apellido no puede exceder 100 caracteres")]
-    public string? SegundoApellido { get; set; }
+    [StringLength(80, ErrorMessage = "El segundo apellido no puede exceder 80 caracteres")]
+    public string SegundoApellido { get; set; } = null!;
 
     [Required(ErrorMessage = "El teléfono es requerido")]
     [StringLength(15, ErrorMessage = "El teléfono no puede exceder 15 caracteres")]
@@ -30,7 +30,7 @@ public partial class Empleado
 
     [Required(ErrorMessage = "Debe seleccionar un cargo")]
     [Range(1, int.MaxValue, ErrorMessage = "Debe seleccionar un cargo válido")]
-    public int IdCargo { get; set; }
+    public int IdCargo { get; set; } 
 
     public string? UsuarioRegistro { get; set; }
 

@@ -129,11 +129,11 @@ public partial class FinalHeladeriaContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("nombres");
             entity.Property(e => e.PrimerApellido)
-                .HasMaxLength(100)
+                .HasMaxLength(80)
                 .IsUnicode(false)
                 .HasColumnName("primerApellido");
             entity.Property(e => e.SegundoApellido)
-                .HasMaxLength(100)
+                .HasMaxLength(80)
                 .IsUnicode(false)
                 .HasColumnName("segundoApellido");
             entity.Property(e => e.Telefono)
