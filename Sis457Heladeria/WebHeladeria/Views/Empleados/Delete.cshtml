@@ -1,0 +1,80 @@
+﻿@model WebHeladeria.Models.Empleado
+
+@{
+    ViewData["Title"] = "Eliminar Empleado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5 mb-5">
+    <div class="card shadow-sm rounded"
+         style="max-width: 700px; margin: auto; background-color: #fff0f5; border: 1px solid #dc3545;">
+
+        <div class="card-body">
+            <h2 class="card-title text-center text-danger mb-4">
+                <i class="fa fa-exclamation-triangle"></i> Confirmar Eliminación
+            </h2>
+
+            <p class="text-center fs-5 mb-4">
+                ¿Estás seguro de que quieres eliminar este empleado?
+            </p>
+
+            <dl class="row">
+
+                <dt class="col-sm-4 fw-semibold">Nombres:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Nombres)</dd>
+
+                <dt class="col-sm-4 fw-semibold">Primer Apellido:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.PrimerApellido)</dd>
+
+                <dt class="col-sm-4 fw-semibold">Segundo Apellido:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.SegundoApellido)</dd>
+
+                <dt class="col-sm-4 fw-semibold">Teléfono:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Telefono)</dd>
+
+                <dt class="col-sm-4 fw-semibold">Dirección:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Direccion)</dd>
+
+                <dt class="col-sm-4 fw-semibold">Cargo:</dt>
+                <dd class="col-sm-8">@(Model.IdCargoNavigation?.Descripcion ?? "N/A")</dd>
+
+                <dt class="col-sm-4 fw-semibold">Usuario Registro:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.UsuarioRegistro)</dd>
+
+                <dt class="col-sm-4 fw-semibold">Fecha Registro:</dt>
+                <dd class="col-sm-8">@(Model.FechaRegistro?.ToString("dd/MM/yyyy HH:mm") ?? "N/A")</dd>
+
+                <dt class="col-sm-4 fw-semibold">Estado:</dt>
+                <dd class="col-sm-8">
+                    @if (Model.Estado == 1)
+                    {
+                        <span class="badge bg-success">Activo</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">Inactivo</span>
+                    }
+                </dd>
+
+            </dl>
+
+            <form asp-action="Delete" method="post" class="text-center mt-4">
+                <input type="hidden" asp-for="Id" />
+
+                <button type="submit" class="btn btn-danger btn-lg me-3">
+                    <i class="fa fa-trash"></i> Eliminar
+                </button>
+
+                <a asp-action="Index" class="btn btn-outline-secondary btn-lg">
+                    <i class="fa fa-arrow-left"></i> Volver a Lista
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,12 +1,54 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Nam\\Documents\\Informatica\\Fundamentos de la programacion\\LabElizabeth\\sis457_heladeria-\\Sis457Heladeria\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF8BDE8-0A31-44FD-A9D5-5AF89D95A203}|WebHeladeria\\WebHeladeria.csproj|c:\\users\\nam\\documents\\informatica\\fundamentos de la programacion\\labelizabeth\\sis457_heladeria-\\sis457heladeria\\webheladeria\\views\\usuarios\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CDF8BDE8-0A31-44FD-A9D5-5AF89D95A203}|WebHeladeria\\WebHeladeria.csproj|solutionrelative:webheladeria\\views\\usuarios\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF8BDE8-0A31-44FD-A9D5-5AF89D95A203}|WebHeladeria\\WebHeladeria.csproj|c:\\users\\nam\\documents\\informatica\\fundamentos de la programacion\\labelizabeth\\sis457_heladeria-\\sis457heladeria\\webheladeria\\views\\usuarios\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CDF8BDE8-0A31-44FD-A9D5-5AF89D95A203}|WebHeladeria\\WebHeladeria.csproj|solutionrelative:webheladeria\\views\\usuarios\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Nam\\Documents\\Informatica\\Fundamentos de la programacion\\LabElizabeth\\sis457_heladeria-\\Sis457Heladeria\\WebHeladeria\\Views\\Usuarios\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebHeladeria\\Views\\Usuarios\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Nam\\Documents\\Informatica\\Fundamentos de la programacion\\LabElizabeth\\sis457_heladeria-\\Sis457Heladeria\\WebHeladeria\\Views\\Usuarios\\Index.cshtml",
+              "RelativeToolTip": "WebHeladeria\\Views\\Usuarios\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-01T03:37:21.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Nam\\Documents\\Informatica\\Fundamentos de la programacion\\LabElizabeth\\sis457_heladeria-\\Sis457Heladeria\\WebHeladeria\\Views\\Usuarios\\Create.cshtml",
+              "RelativeDocumentMoniker": "WebHeladeria\\Views\\Usuarios\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Nam\\Documents\\Informatica\\Fundamentos de la programacion\\LabElizabeth\\sis457_heladeria-\\Sis457Heladeria\\WebHeladeria\\Views\\Usuarios\\Create.cshtml",
+              "RelativeToolTip": "WebHeladeria\\Views\\Usuarios\\Create.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAQAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-01T03:33:29.466Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

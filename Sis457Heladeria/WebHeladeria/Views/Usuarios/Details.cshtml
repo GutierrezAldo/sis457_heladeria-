@@ -1,0 +1,69 @@
+﻿@model WebHeladeria.Models.Usuario
+
+@{
+    ViewData["Title"] = "Detalles del Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5 mb-5">
+    <div class="card shadow-lg rounded" style="max-width: 700px; margin: auto; background-color: #fff0f5; border: 1px solid #f497b6;">
+        <div class="card-body p-4 p-md-5">
+            <h2 class="card-title text-center mb-5" style="color: #8B005D;">
+                <i class="fa fa-user-circle me-2"></i> Detalles del Usuario
+            </h2>
+
+            <dl class="row">
+                <dt class="col-sm-4 fw-semibold">@Html.DisplayNameFor(model => model.Usuario1):</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Usuario1)</dd>
+
+                <dt class="col-sm-4 fw-semibold">@Html.DisplayNameFor(model => model.Clave):</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Clave)</dd>
+
+                <dt class="col-sm-4 fw-semibold">@Html.DisplayNameFor(model => model.UsuarioRegistro):</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.UsuarioRegistro)</dd>
+
+                <dt class="col-sm-4 fw-semibold">@Html.DisplayNameFor(model => model.FechaRegistro):</dt>
+                <dd class="col-sm-8">@Model.FechaRegistro.ToString("dd/MM/yyyy HH:mm")</dd>
+
+                <dt class="col-sm-4 fw-semibold">@Html.DisplayNameFor(model => model.Estado):</dt>
+                <dd class="col-sm-8">
+                    @if (Model.Estado == 1)
+                    {
+                        <span class="badge bg-success">Activo</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">Inactivo</span>
+                    }
+                </dd>
+
+                <dt class="col-sm-4 fw-semibold">Empleado:</dt>
+                <dd class="col-sm-8">
+                    @if (Model.IdEmpleadoNavigation != null)
+                    {
+                        @(Model.IdEmpleadoNavigation.Nombres + " " + Model.IdEmpleadoNavigation.PrimerApellido)
+                    }
+                    else
+                    {
+                        <span>Sin asignar</span>
+                    }
+                </dd>
+            </dl>
+
+            <div class="text-center mt-5">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary me-3" style="background-color: #f497b6; border-color: #f497b6;">
+                    <i class="fa fa-edit"></i> Editar
+                </a>
+                <a asp-action="Index" class="btn btn-outline-secondary">
+                    <i class="fa fa-arrow-left"></i> Volver a Lista
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -29,6 +29,7 @@ public partial class Cliente
     [Required(ErrorMessage = "El NIT es obligatorio.")]
     public string Nit { get; set; } = null!;
 
+    [Required(ErrorMessage = "El celular es obligatorio.")]
     public string Celular { get; set; } = null!;
 
     public string UsuarioRegistro { get; set; } = null!;

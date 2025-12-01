@@ -1,0 +1,79 @@
+﻿@model WebHeladeria.Models.Usuario
+
+@{
+    ViewData["Title"] = "Editar Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container d-flex justify-content-center mt-5 mb-5">
+    <div class="card shadow p-4 rounded w-100" style="max-width: 700px; background-color: #fff0f5;">
+
+        <h2 class="mb-4 text-center" style="color: #8B005D;">
+            <i class="fa fa-user-edit me-2"></i> Editar Usuario
+        </h2>
+
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger mb-3"></div>
+
+            <input type="hidden" asp-for="Id" />
+
+            <div class="mb-3">
+                <label asp-for="IdEmpleado" class="form-label">Empleado:</label>
+                <select asp-for="IdEmpleado" class="form-select" asp-items="ViewBag.IdEmpleado">
+                    <option value="">-- Seleccione un empleado --</option>
+                </select>
+                <span asp-validation-for="IdEmpleado" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Usuario1" class="form-label">Usuario:</label>
+                <input asp-for="Usuario1" class="form-control" />
+                <span asp-validation-for="Usuario1" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Clave" class="form-label">Clave:</label>
+                <input asp-for="Clave" class="form-control" type="password" />
+                <span asp-validation-for="Clave" class="text-danger"></span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="UsuarioRegistro" class="form-label">Usuario Registro:</label>
+                    <input asp-for="UsuarioRegistro" class="form-control" readonly />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="FechaRegistro" class="form-label">Fecha Registro:</label>
+                    <input asp-for="FechaRegistro" class="form-control" readonly />
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Estado" class="form-label">Estado:</label>
+                <select asp-for="Estado" class="form-select">
+                    <option value="1">Activo</option>
+                    <option value="0">Inactivo</option>
+                </select>
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+
+            <div class="text-end mt-4">
+                <a asp-action="Index" class="btn btn-outline-secondary me-2">
+                    <i class="fa fa-arrow-left"></i> Volver a Lista
+                </a>
+                <button type="submit" class="btn text-white"
+                        style="background-color: #f497b6; border-color: #f497b6;">
+                    <i class="fa fa-save"></i> Guardar Cambios
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

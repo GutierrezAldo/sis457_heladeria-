@@ -2,16 +2,16 @@
 GO
 USE [master]
 GO
-CREATE LOGIN [usrfheladeria] WITH PASSWORD = N'123456',
+CREATE LOGIN [usrheladeria] WITH PASSWORD = N'123456',
 	DEFAULT_DATABASE = [FinalHeladeria],
 	CHECK_EXPIRATION = OFF,
 	CHECK_POLICY = ON
 GO
 USE [FinalHeladeria]
 GO
-CREATE USER [usrfheladeria] FOR LOGIN [usrfheladeria]
+CREATE USER [usrheladeria] FOR LOGIN [usrheladeria]
 GO
-ALTER ROLE [db_owner] ADD MEMBER [usrfheladeria]
+ALTER ROLE [db_owner] ADD MEMBER [usrheladeria]
 GO
 
 DROP TABLE VentaDetalle;
@@ -285,7 +285,7 @@ INSERT INTO Proveedor(razonSocial, nit, telefono, direccion, tipoProducto)
 VALUES ('Cítricos del Sol S.R.L.', '987654321', '555-2222', 'Avenida 2', 'Frutas Cítricas'); 
 INSERT INTO Proveedor(razonSocial, nit, telefono, direccion, tipoProducto)	   
 VALUES ('Exquisitas Frutas S.A.', '800654321', '555-3333', 'Boulevard 3', 'Frutas Semiácidas');
-	  
+
 --Frutas dulces: Banana, Manzana roja
 --Frutas cítricas: Naranja, Limón
 --Frutas semiácidas: Frutilla
@@ -299,21 +299,14 @@ INSERT INTO Producto (nombre, idSabor, idProveedor, idPresentacion, precio)
 VALUES ('Frescura Frutilla', 2, 3, 1, 07.00);
 
 INSERT INTO Cargo (descripcion)
-VALUES ('Gerente'), ('Vendedor'), ('Cajero');
+VALUES ('Administrador'), ('Vendedor'), ('Cajero');
 
 INSERT INTO Empleado (nombres, primerApellido, segundoApellido, telefono, direccion, idCargo)
-VALUES ('Rami', 'Saigua', 'López', '72345678', 'Calle Brasil', 1);
-
-INSERT INTO Empleado (nombres, primerApellido, segundoApellido, telefono, direccion, idCargo)
-VALUES ('Laura', 'Gómez', 'Martínez', '72345679', 'Avenida Perú', 2);
+VALUES ('Elizabeth', 'Diaz', 'Canchari', '72345678', 'Calle Brasil', 1);
 
 INSERT INTO Usuario (idEmpleado, usuario, clave)
-VALUES (2, 'lgomez', 'I0HCOO/NSSY6WOS9POP5XW==');
+VALUES (1, 'elid', 'I0HCOO/NSSY6WOS9POP5XW==');
 
-INSERT INTO Usuario (idEmpleado, usuario, clave)
-VALUES (1, 'rsaigua', '');
-
-UPDATE Usuario SET clave = 'Fo29nhWFgz6S2F47mbGlbA==' WHERE idEmpleado = 1;
 
 INSERT INTO Cliente (nombre, nit, celular)
 VALUES ('Mateo', '987654321', '72345678');
@@ -323,7 +316,7 @@ INSERT INTO Cliente (nombre, nit, celular)
 VALUES ('Carol', '789123456', '72345681');
 
 INSERT INTO TipoPago (descripcion)
-VALUES ('Efectivo'), ('Tarjeta de crédito'), ('QR');
+VALUES ('Efectivo'), ('QR');
 
 INSERT INTO Venta (idUsuario, idCliente, idTipoPago, montoTotal, montoPago, montoCambio)
 VALUES (1, 1, 1, 20.00, 50.00, 30.00);

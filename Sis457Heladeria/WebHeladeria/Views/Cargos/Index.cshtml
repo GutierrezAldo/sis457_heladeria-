@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebHeladeria.Models.Cargo>
+
+@{
+    ViewData["Title"] = "Cargos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="mb-4 text-center" style="color:#8B005D;">Cargos</h1>
+
+<div class="mb-3 text-end">
+    <a asp-action="Create" class="btn btn-rosa-claro text-white"><i class="fa fa-plus"></i> Nuevo Cargo</a>
+</div>
+
+<table class="table" style="background-color: #fff0f5; color: #8B005D;">
+    <thead style="background-color: #f497b6; color: white;">
+        <tr>
+            <th>Descripción</th>
+            <th>Usuario Registro</th>
+            <th>Fecha Registro</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Descripcion</td>
+                <td>@item.UsuarioRegistro</td>
+                <td>@item.FechaRegistro.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>
+                    @if (item.Estado == 1)
+                    {<span class="badge bg-success">Activo</span>}
+                    else {<span class="badge bg-secondary">Inactivo</span>}
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning me-1">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info me-1">Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

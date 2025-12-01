@@ -135,6 +135,19 @@ namespace WebHeladeria.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // GET: Clientes/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+                return NotFound();
+
+            var cliente = await _context.Clientes.FirstOrDefaultAsync(m => m.Id == id);
+            if (cliente == null)
+                return NotFound();
+
+            return View(cliente);
+        }
+
         private bool ClienteExists(int id)
         {
             return _context.Clientes.Any(e => e.Id == id);

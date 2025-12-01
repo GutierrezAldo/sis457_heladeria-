@@ -1,0 +1,76 @@
+﻿@model WebHeladeria.Models.Empleado
+
+@{
+    ViewData["Title"] = "Detalles del Empleado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5 mb-5">
+    <div class="card shadow-sm rounded"
+         style="max-width: 700px; margin: auto; background-color: #fff0f5; border: 1px solid #f497b6;">
+
+        <div class="card-body p-4">
+            <h2 class="card-title text-center mb-4 text-primary" style="color: #8B005D;">
+                <i class="fa fa-user-circle"></i> Detalles del Empleado
+            </h2>
+
+            <dl class="row">
+
+                <dt class="col-sm-4 fw-semibold">Nombres:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Nombres)</dd>
+
+                <dt class="col-sm-4 fw-semibold">Primer Apellido:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.PrimerApellido)</dd>
+
+                <dt class="col-sm-4 fw-semibold">Segundo Apellido:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.SegundoApellido)</dd>
+
+                <dt class="col-sm-4 fw-semibold">Teléfono:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Telefono)</dd>
+
+                <dt class="col-sm-4 fw-semibold">Dirección:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Direccion)</dd>
+
+                <dt class="col-sm-4 fw-semibold">Cargo:</dt>
+                <dd class="col-sm-8">@(Model.IdCargoNavigation?.Descripcion ?? "N/A")</dd>
+
+                <dt class="col-sm-4 fw-semibold">Usuario Registro:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.UsuarioRegistro)</dd>
+
+                <dt class="col-sm-4 fw-semibold">Fecha Registro:</dt>
+                <dd class="col-sm-8">@(Model.FechaRegistro?.ToString("dd/MM/yyyy HH:mm") ?? "N/A")</dd>
+
+                <dt class="col-sm-4 fw-semibold">Estado:</dt>
+                <dd class="col-sm-8">
+                    @if (Model.Estado == 1)
+                    {
+                        <span class="badge bg-success">Activo</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">Inactivo</span>
+                    }
+                </dd>
+            </dl>
+
+            <div class="text-center mt-4">
+                <a asp-action="Edit" asp-route-id="@Model.Id"
+                   class="btn btn-primary me-3"
+                   style="background-color: #8B005D; border-color: #8B005D;">
+                    <i class="fa fa-edit"></i> Editar
+                </a>
+
+                <a asp-action="Index" class="btn btn-outline-secondary">
+                    <i class="fa fa-arrow-left"></i> Volver a Lista
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

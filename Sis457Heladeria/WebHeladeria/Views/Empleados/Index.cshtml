@@ -1,0 +1,205 @@
+﻿@model IEnumerable<WebHeladeria.Models.Empleado>
+
+@{
+    ViewData["Title"] = "Lista de Empleados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="mb-4 text-center" style="color:#8B005D;">Empleados</h1>
+
+<div class="d-flex gap-3 mb-3">
+    <a asp-action="Create" class="btn btn-rosa-claro text-white">
+        <i class="fa fa-user-plus"></i> Crear Empleado
+    </a>
+
+    <button type="button" class="btn btn-rosa-claro text-white"
+            data-bs-toggle="modal" data-bs-target="#modalAdministrarCargos" style="margin-left:522px">
+        <i class="fa fa-plus-circle me-1"></i> Administrar Cargos
+    </button>
+</div>
+
+<!-- Modal Administrar Cargos -->
+<div class="modal fade" id="modalAdministrarCargos" tabindex="-1" aria-labelledby="modalAdministrarCargosLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background: #fff0f5; border-radius: 24px;">
+            <form id="formAgregarCargo" autocomplete="off">
+                @Html.AntiForgeryToken()
+                <div class="modal-header" style="background: #8B005D;">
+                    <h5 class="modal-title" id="modalAdministrarCargosLabel" style="color: #fff;">Administrar Cargos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="NombreCargo" class="form-label">Nuevo Cargo</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="NombreCargo" name="Nombre"
+                                   required maxlength="50" placeholder="Nombre del cargo" />
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa fa-plus-circle me-1"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <h6>Cargos existentes</h6>
+                    <table class="table table-sm table-bordered align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th style="width: 40px;"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="cargos-body"></tbody>
+                    </table>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        <i class="fa fa-times-circle me-1"></i> Cerrar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Tabla principal -->
+<table class="table" style="background-color: #fff0f5; color: #8B005D;">
+    <thead style="background-color: #f497b6; color: white;">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nombres)</th>
+            <th>@Html.DisplayNameFor(model => model.PrimerApellido)</th>
+            <th>@Html.DisplayNameFor(model => model.SegundoApellido)</th>
+            <th>@Html.DisplayNameFor(model => model.Telefono)</th>
+            <th>@Html.DisplayNameFor(model => model.Direccion)</th>
+            <th>Cargo</th>
+            <th>@Html.DisplayNameFor(model => model.FechaRegistro)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nombres</td>
+                <td>@item.PrimerApellido</td>
+                <td>@item.SegundoApellido</td>
+                <td>@item.Telefono</td>
+                <td>@item.Direccion</td>
+                <td>@(item.IdCargoNavigation?.Descripcion ?? "N/A")</td>
+                <td>@(item.FechaRegistro?.ToString("dd/MM/yyyy HH:mm") ?? "N/A")</td>
+
+                <td>
+                    <div class="d-flex acciones-botones">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-editar me-2">
+                            <i class="fa fa-pencil"></i> Editar
+                        </a>
+
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-detalles me-2">
+                            <i class="fa fa-eye"></i> Detalles
+                        </a>
+
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-eliminar">
+                            <i class="fa fa-trash"></i> Eliminar
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    .btn-rosa-claro {
+        background-color: #f497b6;
+        border-color: #f497b6;
+    }
+
+        .btn-rosa-claro:hover {
+            background-color: #e06a8a;
+            border-color: #e06a8a;
+            color: white;
+        }
+
+    .btn-editar {
+        background-color: #ffc107;
+        border-color: #ffc107;
+        color: black !important;
+    }
+
+    .btn-detalles {
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+        color: white !important;
+    }
+
+    .btn-eliminar {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        color: white !important;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        // Abrir modal → cargar lista
+        $('#modalAdministrarCargos').on('show.bs.modal', function () {
+            cargarCargos();
+        });
+
+        function cargarCargos() {
+            $.get('@Url.Action("Listar", "Cargos")', function (data) {
+                let tbody = $('#cargos-body');
+                tbody.empty();
+
+                if (data.length === 0) {
+                    tbody.append('<tr><td colspan="2" class="text-center text-muted">No hay cargos registrados.</td></tr>');
+                    return;
+                }
+
+                data.forEach(c => {
+                    tbody.append(`
+                        <tr>
+                            <td>${c.nombre ?? c.Nombre}</td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-sm btn-danger btn-eliminar-cargo" data-id="${c.id ?? c.Id}">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    `);
+                });
+            });
+        }
+
+        // Agregar cargo
+        $('#formAgregarCargo').submit(function (e) {
+            e.preventDefault();
+            let nombre = $('#NombreCargo').val();
+
+            var token = $('#formAgregarCargo input[name="__RequestVerificationToken"]').val();
+            $.post('@Url.Action("CreateAjax", "Cargos")', { Nombre: nombre, __RequestVerificationToken: token }, function (result) {
+                if (result.success) {
+                    $('#NombreCargo').val('');
+                    cargarCargos();
+                }
+                alert(result.mensaje);
+            });
+        });
+
+        // Eliminar cargo
+        $(document).on('click', '.btn-eliminar-cargo', function () {
+            let id = $(this).data('id');
+
+            if (!confirm('¿Está seguro de eliminar este cargo?')) return;
+
+            var token = $('#formAgregarCargo input[name="__RequestVerificationToken"]').val();
+            $.post('@Url.Action("Eliminar", "Cargos")', { id: id, __RequestVerificationToken: token }, function (result) {
+                if (result.success) cargarCargos();
+                alert(result.mensaje);
+            });
+        });
+    </script>
+}

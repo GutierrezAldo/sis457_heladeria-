@@ -1,0 +1,67 @@
+﻿@model WebHeladeria.Models.Usuario
+
+@{
+    ViewData["Title"] = "Crear Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container d-flex justify-content-center mt-5 mb-5">
+    <div class="card shadow p-4 rounded w-100" style="max-width: 700px; background-color: #fff0f5;">
+        <h2 class="mb-4 text-center text-dark">
+            <i class="fa fa-user-plus me-2"></i> Registrar Nuevo Usuario
+        </h2>
+
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger mb-4"></div>
+
+            <!-- Selección de Empleado con buscador -->
+            <div class="form-group mb-3">
+                <label asp-for="IdEmpleado" class="form-label">Empleado:</label>
+                <select asp-for="IdEmpleado" class="form-control select2" asp-items="ViewBag.IdEmpleado">
+                    <option value="">-- Seleccione un empleado --</option>
+                </select>
+                <span asp-validation-for="IdEmpleado" class="text-danger"></span>
+            </div>
+
+            <!-- Usuario -->
+            <div class="form-group mb-3">
+                <label asp-for="Usuario1" class="form-label">Usuario:</label>
+                <input asp-for="Usuario1" class="form-control" />
+                <span asp-validation-for="Usuario1" class="text-danger"></span>
+            </div>
+
+            <!-- Clave -->
+            <div class="form-group mb-3">
+                <label asp-for="Clave" class="form-label">Clave:</label>
+                <input asp-for="Clave" class="form-control" type="password" />
+                <span asp-validation-for="Clave" class="text-danger"></span>
+            </div>
+
+            <div class="text-end mt-4">
+                <a asp-action="Index" class="btn btn-outline-secondary me-2">
+                    <i class="fa fa-arrow-left"></i> Volver a Lista
+                </a>
+                <button type="submit" class="btn text-white" style="background-color: #f497b6; border-color: #f497b6;">
+                    <i class="fa fa-save"></i> Guardar Usuario
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        $(document).ready(function () {
+            // Inicializa Select2 en el select de empleados
+            $('.select2').select2({
+                placeholder: "-- Seleccione un empleado --",
+                allowClear: true,
+                width: '100%'
+            });
+        });
+    </script>
+}
